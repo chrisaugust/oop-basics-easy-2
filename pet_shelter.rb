@@ -16,8 +16,8 @@ class Owner
   end
 
   def name
-    first_initial = @name.chars.first.upcase
-    last_name = @name.chars[1..-1].join.capitalize
+    first_initial, last_name = @name.split
+    last_name.capitalize!
     "#{first_initial} #{last_name}"
   end
 
@@ -42,7 +42,7 @@ class Shelter
     @owners.each do |o|
       puts "#{o.name} has adopted the following pets:"
       o.pets.each do |p|
-        puts "a #{p.type} name #{p.name}"
+        puts "\ta #{p.type} name #{p.name}"
       end
       puts
     end
